@@ -2,11 +2,13 @@ import core.data.*;
 
 public class Welcome02_Object {
    public static void main(String[] args) {
-      String id1 = "KATL";
+      String id1 = "KSTL";
       DataSource ds1 = DataSource.connect("http://weather.gov/xml/current_obs/" + id1 + ".xml"); 
       ds1.setCacheTimeout(15 * 60);  
       ds1.load();
-      //ds1.printUsageString();
+      // ds1.printUsageString();
+
+      System.out.println("\n\n");
 
       Observation ob1 = ds1.fetch("Observation", "weather", "temp_f", "wind_degrees");
       System.out.println(id1 + ": " + ob1);

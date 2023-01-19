@@ -18,10 +18,26 @@ public class Welcome03_List {
       System.out.println("Enter a state abbreviation: ");
       String state = sc.next();
       System.out.println("Stations in " + state);
+
       for (WeatherStation ws : allstns) {
          if (ws.isLocatedInState(state)) {
             System.out.println("  " + ws.getId() + ": " + ws.getName());
          }
       }
+   
+
+      System.out.println("n\n\n");
+
+      WeatherStation south = new WeatherStation(state, state, state, 0, 0);
+
+      for (WeatherStation ws : allstns) {
+         if (ws.getLat() < south.getLat()) {
+            south = ws;
+         }
+      }
+
+      System.out.println(south.getName());
+
+      sc.close();
    }
 }
